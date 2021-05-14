@@ -1,0 +1,99 @@
+body{
+	background-color:#000;
+}
+
+#landing-header{
+	z-index:1;
+  	position:relative;
+  	text-align:center;
+  	padding-top:30vh;
+}
+
+#landing-header h1{
+	color:#ffe135;
+	font-size:5.5em;
+}
+
+#landing-header p{
+	color:#ffe135;
+	font-size:2.5rem;
+	font-weight:normal;
+	margin:0;
+}
+
+hr.style-two{
+    border:0;
+    height:1px;
+    background-image:linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+#go{
+	color:#ffe135;
+	font-size:4em;
+}
+
+#go:hover{
+	background-color:rgba(255,225,53,0.05);
+	border-radius:50%;
+	padding:0.3rem 1.5rem 0.3rem 1.5rem;
+}
+
+.slideshow{ 
+  	position:fixed;
+  	width:100%;
+  	height:100%;
+  	top:0;
+  	left:0;
+  	z-index:0;
+  	list-style:none;
+  	margin:0;
+ 	padding:0;
+}
+
+.slideshow li{ 
+  	width:100%;
+  	height:100%;
+  	position:absolute;
+  	top:0;
+  	left:0;
+ 	background-size:cover;
+  	background-position:50% 50%;
+  	background-repeat:no-repeat;
+  	opacity:0;
+  	z-index:0;
+  	animation:imageAnimation 21s linear infinite; 
+}
+
+.slideshow li:nth-child(1){ 
+	  	background-image:url(https://images.unsplash.com/photo-1500731250117-4b0cbb8b276a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1924&q=80);
+}
+.slideshow li:nth-child(2){
+  	background-image:url(https://images.unsplash.com/photo-1612795459707-1002f77720d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
+  	animation-delay:7s; 
+}
+.slideshow li:nth-child(3){ 
+	  	background-image:url(https://images.unsplash.com/photo-1611605862730-70d01fb82518?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
+  	animation-delay:14s; 
+}
+
+@keyframes imageAnimation{ 
+	0%{ 
+    	opacity:0.05; 
+    	animation-timing-function:ease-in;
+	}
+  	10%{
+    	opacity:0.8;
+    	animation-timing-function:ease-out;
+  	}
+  	20%{
+    	opacity:0.8
+  	}
+  	30%{
+    	opacity:0.05
+  	}
+}
+
+/* Older browser support - class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity:0.8;
+}

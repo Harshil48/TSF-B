@@ -1,0 +1,40 @@
+<%- include("../partials/header") %>
+
+<div class="row">
+	<div class="col">
+		<h1>Transactions</h1>
+		<hr>
+		<table class="table table-striped" id="transc">
+		  <thead>
+			<tr>
+			  <th scope="col" rowspan="2">#</th>
+			  <th scope="col" colspan="2">From</th>
+			  <th scope="col" colspan="2">To</th>
+			  <th scope="col" rowspan="2">Amount</th>
+			  <th scope="col" rowspan="2">Date</th>
+			</tr>
+			<tr>
+			  <th scope="col">Customer Full Name</th>
+			  <th scope="col">Account Number</th>
+		      <th scope="col">Customer Full Name</th>
+			  <th scope="col">Account Number</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<% t.forEach(function(c,cnt){ %>
+			<tr>
+			  <th scope="row"><%= cnt+1 %></th>
+			  <td><a href="/customers/<%= c.from._id %>"><%= c.from.firstname %> <%= c.from.lastname %></a></td>
+			  <td><%= c.from.accountNo %></td>
+			  <td><a href="/customers/<%= c.to._id %>"><%= c.to.firstname %> <%= c.to.lastname %></a></td>
+			  <td><%= c.to.accountNo %></td>
+			  <td> ₹ <%= c.amount %></td>
+			  <td><%= moment(c.date).format('Do MMMM YYYY, h:mm a') %></td>
+			</tr>	  
+			<% }); %>
+		  </tbody>
+		</table>
+	</div>
+</div>
+
+<%- include("../partials/footer") %>

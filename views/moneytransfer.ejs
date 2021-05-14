@@ -1,0 +1,83 @@
+<%- include("../partials/header") %>
+
+<div class="row">
+	<div class="col">
+		<h1>Transfer Money</h1>
+		<hr>
+		<form action="/customers/<%= from._id %>/transaction" method="POST" autocomplete="off">
+			<div class="row" >
+				<p>From :</p>
+				<div class="col-md-4">
+					<div class="col-md-5">
+						<label for="fname" class="form-label">Customer Name</label>
+					</div>
+					<div class="col-md-7">
+						<input type="text" class="form-control" id="fname" value="<%= from.firstname %>  <%= from.lastname %>" disabled>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="col-md-5">
+						<label for="faccNo" class="form-label">Account Number</label>
+					</div>
+					<div class="col-md-7">
+						<input type="text" class="form-control" id="faccNo" value="<%= from.accountNo %>" disabled>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="col-md-5">
+						<label for="currBal" class="form-label">Current Balance</label>
+					</div>
+					<div class="col-md-7">
+						<input type="number" class="form-control" id="currBal" value="<%= from.currentBal %>" disabled>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="margin-top:50px">
+				<p>To : (Select a customer from the list given below)</p>
+				<table class="table table-striped">
+				  <thead>
+					<tr>
+					  <th scope="col"></th>
+					  <th scope="col">Customer Full Name</th>
+					  <th scope="col">Account Number</th>
+					  <th scope="col">Current Balance</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<% to.forEach(function(c){ %>
+					<tr>
+					  <th scope="row" style="padding-right:3px"><input type="radio" style="margin-left:10px;cursor:pointer;" name="to" value="<%= c._id %>" required></th>
+					  <td><a href="/customers/<%= c._id %>"><%= c.firstname %> <%= c.lastname %></a></td>
+					  <td><%= c.accountNo %></td>
+					  <td> ₹ <%= c.currentBal %></td>
+					</tr>	  
+					<% }); %>
+				  </tbody>
+				</table>
+			</div>
+			<div class="row" style="margin-top:30px;">
+				<div class="col-md-4">
+					<div class="col-md-5">
+						<label for="amnt" class="form-label" style="font-size:1.3em">Amount (₹)</label>
+					</div>
+					<div class="col-md-7">
+						<input type="number" class="form-control" id="amnt" name="amount" min="1" required>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="margin: 20px auto 50px auto">
+				<div class="col-md-4">
+					
+				</div>
+				<div class="col-md-4">
+					<button type="submit" class="btn btn-primary btn-block">Transfer</button>
+				</div>
+				<div class="col-md-4">
+					
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<%- include("../partials/footer") %>

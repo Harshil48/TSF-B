@@ -1,0 +1,32 @@
+<%- include("../partials/header") %>
+
+<div class="row">
+	<div class="col">
+		<h1>Customers</h1>
+		<hr>
+		<table class="table table-striped">
+		  <thead>
+			<tr>
+			  <th scope="col">#</th>
+			  <th scope="col">Full Name</th>
+			  <th scope="col">Account Number</th>
+			  <th scope="col">Current Balance</th>
+			  <th scope="col">Contact</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<% custs.forEach(function(c,cnt){ %>
+			<tr>
+			  <th scope="row"><%= cnt+1 %></th>
+			  <td><a href="/customers/<%= c._id %>"><%= c.firstname %> <%= c.lastname %></a></td>
+			  <td><%= c.accountNo %></td>
+			  <td> ₹ <%= c.currentBal %></td>
+			  <td><%= c.contactNo %> / <%= c.email %></td>
+			</tr>	  
+			<% }); %>
+		  </tbody>
+		</table>
+	</div>
+</div>
+
+<%- include("../partials/footer") %>

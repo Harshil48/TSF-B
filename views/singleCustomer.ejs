@@ -1,0 +1,89 @@
+<%- include("../partials/header") %>
+
+<div class="row">
+	<div class="col-md-4">
+		<h2><%= custs.firstname + " " + custs.lastname %></h2>
+		<hr>
+		<div id="profileimg">
+			<img class="img-circle" src="<%= custs.profileimage %>" alt="user profile image">
+		</div>
+		<div id="info"> 
+			<p>First Name : <%= custs.firstname %></p>
+			<p>Last Name : <%= custs.lastname %></p>
+			<p>Gender : <%= custs.gender %></p>
+			<p>Age : <%= custs.age %></p>
+			<p>Account Number : <%= custs.accountNo %></p>
+			<p><b>Current Balance : ₹ <%= custs.currentBal %></b></p>
+			<p>Contact No. : <a><%= custs.contactNo %></a></p>
+			<p>e-mail : <a><%= custs.email %></a></p>
+		</div>
+		<div class="row text-center">
+			<div class="col" id="mny">
+				<a href="/customers/<%= custs._id %>/transaction" class="btn btn-success btn-block">Transfer Money</a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-8">
+		<h2><%= custs.firstname %>'s Transactions</h2>
+		<hr>
+		<div style="margin-top:30px">
+			<p style="font-size:1.35em;font-weight:bold">
+				Money Transferred :
+			</p>
+			<table class="table table-striped" id="transfers">
+			  <thead>
+				<tr>
+				  <th scope="col" colspan="2">To</th>
+				  <th scope="col" rowspan="2">Amount</th>
+				  <th scope="col" rowspan="2">Date</th>
+				</tr>
+				<tr>
+				  <th scope="col">Customer Full Name</th>
+				  <th scope="col">Account Number</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<% transfers.forEach(function(t){ if(t.from.accountNo==custs.accountNo) { %>
+				<tr>
+				  <td><a href="/customers/<%= t.to._id %>"><%= t.to.firstname %> <%= t.to.lastname %></a></td>
+				  <td><%= t.to.accountNo %></td>
+				  <td> ₹ <%= t.amount %></td>
+				  <td><%= moment(t.date).format('Do MMMM YYYY, h:mm a') %></td>
+				</tr>	  
+				<% } }); %>
+			  </tbody>
+			</table>
+		</div>
+		<div style="margin-top:60px">
+			<p style="font-size:1.35em;font-weight:bold">
+				Money Received :
+			</p>
+			<table class="table table-striped" id="transfers">
+			  <thead>
+				<tr>
+				  <th scope="col" colspan="2">From</th>
+				  <th scope="col" rowspan="2">Amount</th>
+				  <th scope="col" rowspan="2">Date</th>
+				</tr>
+				<tr>
+				  <th scope="col">Customer Full Name</th>
+				  <th scope="col">Account Number</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<% transfers.forEach(function(t){ if(t.to.accountNo==custs.accountNo) { %>
+				<tr>
+				  <td><a href="/customers/<%= t.from._id %>"><%= t.from.firstname %> <%= t.from.lastname %></a></td>
+				  <td><%= t.from.accountNo %></td>
+				  <td> ₹ <%= t.amount %></td>
+				  <td><%= moment(t.date).format('Do MMMM YYYY, h:mm a') %></td>
+				</tr>	  
+				<% } }); %>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<%- include("../partials/footer") %>

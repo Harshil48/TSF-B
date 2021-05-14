@@ -1,0 +1,188 @@
+html{
+	position: relative;
+	min-height: 100%;
+}
+body{
+	margin-bottom: 60px;
+	background-color:rgba(0,0,0,0.05);
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color:rgba(255,255,53,0.33);
+}
+
+.container .text-muted {
+  margin: 20px 0;
+	font-size:1.2em;
+}
+
+a:hover{
+	text-decoration:none;
+}
+
+.nav a{
+	font-size: 1.3em;
+}
+
+.navbar-brand{
+	font-size: 2em;
+}
+
+.navbar{
+	background-color:rgba(255,255,53,0.33);
+}
+
+.thumbnail{
+	background-color:rgba(0,0,0,0);
+}
+
+.cust{
+	border: 0px;
+}
+
+.cust .caption{
+	padding: 0px;
+}
+
+.cust .caption h4{
+	margin: 0px;
+}
+
+.cust img{
+	height: 100%;
+	width: 100%;
+	border:2px solid darkgray;
+	background-color:rgba(255,255,53,0.2);
+}
+
+#up1{
+	margin:20px 0 0 0;	
+}
+
+#up2{
+	margin:20px 0 0 0;
+}
+
+hr{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0));
+}
+
+.table{
+	margin-top:50px;
+}
+
+.table{
+	background-color:rgba(255,255,53,0.2);
+}
+
+.table thead{
+	font-size:1.4em;
+}
+
+.table tbody{
+	font-size:1.15em;
+}
+
+.table th,td{
+	text-align:center;
+}
+
+#profileimg img{
+	margin: 15px auto 20px 50px;
+	height: 200px;
+	width: 200px;
+	border:1px solid grey;
+	background-color:rgba(255,255,53,0.33);
+}
+
+#info{
+	margin:20px auto auto 50px;
+	font-size:1.4em;
+}
+
+#mny{
+	padding: 20px 30px 40px 30px;
+}
+
+.btn-success{
+	font-size:1.5em;
+}
+
+form p {
+	margin-left:20px;
+	margin-top: 10px;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+form label{
+	font-size:1.1em;
+	padding-top:5px;
+}
+
+form .col-md-5{
+	padding-right:0;
+}
+
+form .col-md-7{
+	padding-left:0;
+}
+
+form .col-md-4{
+	margin-top:20px;
+}
+
+form .btn{
+	font-size:1.4em;
+	margin:auto;
+}
+
+#transc {
+	border-style:hidden;
+}
+
+#transc th{
+	border: 2px solid #ddd;
+}
+
+#transc th{
+	vertical-align:middle;
+}
+
+#transc td{
+	border: 1px solid #ddd;
+}
+
+#transfers{
+	margin-top: 30px;
+}
+
+#transfers thead{
+	font-size:1.2em;
+}
+
+#transfers tbody{
+	font-size:1.1em;
+}
+
+#transfers{
+	border-style:hidden;
+}
+
+#transfers th{
+	border: 2px solid #ddd;
+}
+
+#transfers th{
+	vertical-align:middle;
+}
+
+#transfers td{
+	border: 1px solid #ddd;
+}
