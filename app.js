@@ -139,5 +139,5 @@ app.get("/transactionHistory",(req,res)=>{
 });
 
 app.listen(process.env.PORT || 3000,process.env.IP,()=>{
-	console.log("TSF Banking Server has started...");
+	console.log("The TSF Banking Server has started...");
 });
